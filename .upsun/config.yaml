@@ -34,14 +34,10 @@ applications:
         source_path: public
 
     # Configurez les ressources de réseau.
-    relationships:
-      database: "mysql:database"
+
 
 services:
   # Configuration du service de base de données (exemple avec MySQL).
-  mysql:
-    type: mysql:10.4
-    disk: 1024
 
 # Configurez les routes de votre application.
 routes:
