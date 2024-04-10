@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   
   passport.use(new SteamStrategy({
     returnURL: `${process.env.ENDPOINT}/auth/steam/return`,
-    realm: process.env.ENDPOINT,
+    realm: process.env.ENDPOINT ? process.env.ENDPOINT : "http://localhost:3000",
     apiKey: '8CF3471036ED5E1DF90E2FF1C9A1F0A4'
   },
   function(identifier, profile, done) {
