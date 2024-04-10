@@ -7,7 +7,7 @@ import UserEdit from "./edit/UserEdit";
 import ItemEdit from "./edit/ItemEdit";
 
 const AdminApp = () => {
-    return <AdminWrapper dataProvider={jsonServerProvider( process.env.ENDPOINT + "/api")}>
+    return <AdminWrapper dataProvider={jsonServerProvider("/api")}>
         <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate}  />
         <Resource name="items" edit={ItemEdit}  list={ListGuesser} create={ItemCreate} show={ShowGuesser} />
 
