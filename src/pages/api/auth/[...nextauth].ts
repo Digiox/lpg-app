@@ -6,6 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return NextAuth(req, res, {
+        secret: process.env.SECRET,
         providers: [
             SteamProvider(req, {
                 clientSecret: "8CF3471036ED5E1DF90E2FF1C9A1F0A4",
