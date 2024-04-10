@@ -1,8 +1,7 @@
 // pages/api/auth/[...nextauth].ts
 import NextAuth from 'next-auth'
 import SteamProvider, { PROVIDER_ID } from 'next-auth-steam'
-import dotenv from "dotenv"
-dotenv.config()
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

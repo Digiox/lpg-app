@@ -1,7 +1,6 @@
 import passport from "passport";
 import SteamStrategy from "passport-steam";
-import dotenv from "dotenv"
-dotenv.config()
+
 
 
 
