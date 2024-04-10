@@ -25,7 +25,7 @@ applications:
         '/':
           passthru: true
           # Spécifiez que le trafic doit être transmis à votre application.
-          upstream: mylpg-app:http
+         
 
     # Configuration de l'emplacement de vos fichiers statiques (construits).
     mounts:
