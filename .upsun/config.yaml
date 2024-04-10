@@ -15,12 +15,11 @@ applications:
       build: |
         set -eux
         npm install
-        npm run build
 
     web:
       commands:
         # Démarrez votre application Next.js en mode production.
-        start: npm run start
+        start: npm run dev
       locations:
         '/':
           passthru: true
