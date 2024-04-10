@@ -1,10 +1,10 @@
+import Link from "next/link";
 import Nav from "../components/navbar/Nav";
 
 
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-img-bg-main bg-cover bg-no-repeat">
+  return <main className="min-h-screen bg-img-bg-main bg-cover bg-no-repeat">
       <Nav />
       <div className="flex flex-col items-center">
         <h1 className="font-water text-white text-center text-7xl mt-20 tracking-wider">La province gangrenée</h1>
@@ -14,8 +14,8 @@ export default function Home() {
           </p>
         </div>
 
-       <a className="text-center font-krona text-white border border-white bg-white bg-opacity-10 mt-20 py-7 font-bold rounded w-1/4 hover:bg-opacity-20" href="/servers"> ACCÉDER AU SERVEUR</a>
+       <Link className="text-center font-krona text-white border border-white bg-white bg-opacity-10 mt-20 py-7 font-bold rounded w-1/4 hover:bg-opacity-20" href="/servers"> ACCÉDER AU SERVEUR</Link>
       </div>
     </main>
-  );
+
 }

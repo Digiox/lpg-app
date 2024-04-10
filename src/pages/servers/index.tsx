@@ -25,7 +25,7 @@ const Servers = () => {
             <div className="flex flex-col items-center">
                 <h1 className="font-water text-white text-center text-7xl mt-20 tracking-wider">Serveurs</h1>
                 <div>
-                    {servers?.map(serverData => <div className=" mx-auto mt-40 bg-white w-1/2 h-60 bg-opacity-10 flex flex-col justify-center text-white rounded-md p-4">
+                    {servers?.map((serverData, key) => <div key={key} className=" mx-auto mt-40 bg-white w-1/2 h-60 bg-opacity-10 flex flex-col justify-center text-white rounded-md p-4">
 
                         <div className=" flex justify-between">
                             <h3 className="font-krona text-2xl w-4/5">{serverData.name}</h3>
@@ -39,7 +39,7 @@ const Servers = () => {
                         <div className="flex">
                             <p className="mr-1">Mods notable: </p>
                             <div>
-                                {serverData.mods?.map((mod: any) => <span className="border bg-white bg-opacity-10 p-1 rounded-full text-xs m-1">
+                                {serverData.mods?.map((mod: any, k) => <span key={k} className="border bg-white bg-opacity-10 p-1 rounded-full text-xs m-1">
                                     {mod}
                                 </span>)}
                             </div>

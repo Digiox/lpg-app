@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 // Définition de l'interface représentant un document serveur
 export interface IItem {
-  _id: String,
+  _id?: String,
   name: String,
   price: number,
   content: String[],

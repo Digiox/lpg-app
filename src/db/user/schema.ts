@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 // Définition de l'interface représentant un document utilisateur
 export interface IUser {
-  _id: String,
+  _id?: String,
   username: string;
   steam_id: string;
   balance?: number

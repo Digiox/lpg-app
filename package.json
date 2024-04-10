@@ -15,6 +15,7 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "gamedig": "^5.0.0-beta.2",
+    "graceful-fs": "^4.2.11",
     "mongoose": "^8.2.4",
     "next": "14.1.0",
     "next-auth-steam": "^0.3.0",

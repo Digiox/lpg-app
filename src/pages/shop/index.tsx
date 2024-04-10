@@ -7,6 +7,7 @@ import { Session } from "next-auth"
 import { IItem } from "../../db/item/schema"
 import { toast } from "react-toastify"
 import BlueSpinner from "../../components/spinners/BlueSpinner"
+import Image from "next/image"
 
 
 interface CustomSession extends Session {
@@ -28,21 +29,23 @@ const Shop = () => {
         _id: String
     }
     const handleAddToCart = (item: IFullItem) => {
-        axios.put(`/api/users/${customSession.user.steam?.steamid}/cart`, {
-            item_id: item._id
-        })
-            .then(() => {
-                toast.success("Item added to cart")
+        if (customSession && customSession.user) {
+            axios.put(`/api/users/${customSession.user.steam?.steamid}/cart`, {
+                item_id: item._id
             })
-            .catch((error) => {
-                console.log(error);
-
-            })
+                .then(() => {
+                    toast.success("Item added to cart")
+                })
+                .catch((error) => {
+                    console.log(error);
+    
+                })
+        }
     }
 
     useEffect(() => {
         setShowItemSpinner(true)
-        if (session?.user) {
+        if (customSession && customSession?.user) {
             axios.get("/api/users/" + customSession.user.steam?.steamid)
                 .then((res: any) => {
                     setUser(res.data)
@@ -56,7 +59,7 @@ const Shop = () => {
                 })
         }
 
-    }, [session])
+    }, [session, customSession])
     const [items, setItems] = useState<IFullItem[]>([])
 
     useEffect(() => {
@@ -118,19 +121,19 @@ const Shop = () => {
                 <div className="ml-10 p-4 bg-white bg-opacity-10 w-1/4 h-full text-white flex-col">
                     <div className="bg-white flex justify-between w-2/3 m-auto mb-10 p-1">
                         <input className="p-1 w-1/2" placeholder="Rechercher" />
-                        <img src="/img/search.svg" />
+                        <Image width={20} height={20} src="/img/search.svg" alt={""} />
                     </div>
                     <div className="flex-col flex  gap-5 p-3 mb-10">
-                        {categories.map(category => {
-                            return <button onClick={() => handleClickFilter(category.name)} className="text-left hover:bg-white hover:bg-opacity-10 p-3">{category.display}</button>
+                        {categories.map((category, key) => {
+                            return <button key={key} onClick={() => handleClickFilter(category.name)} className="text-left hover:bg-white hover:bg-opacity-10 p-3">{category.display}</button>
                         })}
                     </div>
                     {user && <p className="font-krona font-bold">{user.balance} crédits</p>}
                 </div>
                 <div className="grid grid-rows-4 grid-flow-col gap-4 w-full">
                     {!showItemSpinner ?
-                        items.map((item: IFullItem) => {
-                            return <div className="bg-white flex  bg-opacity-20 text-white flex-col text-center gap-3 text-lg">
+                        items.map((item: IFullItem, key) => {
+                            return <div key={key} className="bg-white flex  bg-opacity-20 text-white flex-col text-center gap-3 text-lg">
                                 <h3>{item.name}</h3>
                                 <h4>{item.price} Crédits</h4>
                                 <div className="flex gap-2 justify-center">
