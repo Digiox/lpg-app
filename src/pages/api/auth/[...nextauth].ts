@@ -10,7 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         providers: [
             SteamProvider(req, {
                 clientSecret: "8CF3471036ED5E1DF90E2FF1C9A1F0A4",
-                callbackUrl: process.env.ENDPOINT + '/api/auth/callback'
+                callbackUrl: '/api/auth/callback'
             })
         ],
         pages: {
